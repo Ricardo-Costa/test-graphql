@@ -1,6 +1,6 @@
 # Tests com GraphQL
 
-### Project install `create .env files`
+### Project install - ```create .env file```
 ```
 yarn
 ```
