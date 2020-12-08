@@ -1,3 +1,7 @@
 /.idea
 /start-new-api/node_modules
 /start-new-api/yarn-error.log
+
+/start-new-api/node_modules
+
+/client/client/node_modules

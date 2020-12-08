@@ -1,4 +1,4 @@
-const { ApolloServer } = require("apollo-server")
+const { ApolloServer, PubSub } = require("apollo-server")
 import mongoose, { connection } from "mongoose"
 
 function startServer({ typeDefs, resolvers }) {
@@ -13,7 +13,8 @@ function startServer({ typeDefs, resolvers }) {
     db.on('open', () => console.log('MongoDB: Ok'))
     db.on('errpr', err => console.error('MongoDB: Error', err))
 
-    const server = new ApolloServer({ typeDefs, resolvers })
+    const pubsub = new PubSub()
+    const server = new ApolloServer({ typeDefs, resolvers, context: { pubsub }})
     server.listen({ port: parseInt(process.env.PORT) }).then(({ url }) => console.log(`Server at url: ${url}`))
 }
 
